@@ -2,6 +2,11 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from groq import Groq
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 
 app = FastAPI()
 
@@ -13,7 +18,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = Groq(api_key="API_KEY_HERE")
+
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
 
 class Query(BaseModel):
     message: str
