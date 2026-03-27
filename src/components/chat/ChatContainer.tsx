@@ -52,7 +52,7 @@ export function ChatContainer() {
 
     try {
       // Call FastAPI backend
-      const response = await fetch("http://127.0.0.1:8000/ask", {
+      const response = await fetch("https://bloom-chat-1yub.onrender.com/ask", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
